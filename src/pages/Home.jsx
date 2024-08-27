@@ -10,11 +10,16 @@ import { Web3ModalContext } from "../contexts/web3ModalContext";
 import { useNavigate } from "react-router-dom";
 import { useDashboard } from "../contexts/dashboardContext";
 import { getXdcContract } from "../lib/stbSwapContract";
+import { multiChainConfig, multiChainTheme } from "../data/config";
+import WormholeConnect from "@wormhole-foundation/wormhole-connect";
+import { CancelButton } from "../assets/Icon/CancelButton";
 
 function Home() {
   const { connect, disconnect } = useContext(Web3ModalContext);
   const { resetVaultBorrowSetup, setFromDashborrow, setFromDashearn } =
     useBorrow();
+
+  const [chainModal, setChainModal] = useState(false);
 
   const navigate = useNavigate();
   const {
@@ -35,16 +40,12 @@ function Home() {
 
   //handles wallet connection
   const handleConnectWallet = async () => {
-    await connect().then((res) => {
-      if (res) {
-        navigate("/info");
-      }
-    });
+    setChainModal(true);
   };
 
   // handles wallet disconnection
   const handleDisconnectWallet = () => {
-    disconnect();
+    setChainModal(false);
   };
 
   useEffect(() => {
@@ -57,14 +58,36 @@ function Home() {
   }, []);
 
   return (
-    <div className="">
-      <LandingBody _handleConnectWallet={handleConnectWallet}>
-        <Web3ModalProvider></Web3ModalProvider>
-        <div className="">
-          <HeroSection _handleConnectWallet={handleConnectWallet} />
+    <div className="relative w-full h-screen bg-black overflow-none ">
+      {chainModal ? (
+        <div className="  w-full flex justify-center">
+          <div className="w-full relative h-full overflow-y-scroll ">
+            <div className="h-full overflow-y-scroll">
+
+            <div
+              className="absolute top-16 right-12 cursor-pointer rounded-lg"
+              onClick={handleDisconnectWallet}
+            >
+              <CancelButton />
+            </div>
+            <WormholeConnect
+              config={multiChainConfig}
+              theme={multiChainTheme}
+              className="bg-black"
+            />
+          </div>
+          </div>
+
         </div>
-        <Footer />
-      </LandingBody>
+      ) : (
+        <LandingBody _handleConnectWallet={handleConnectWallet}>
+          <Web3ModalProvider></Web3ModalProvider>
+          <div className="">
+            <HeroSection _handleConnectWallet={handleConnectWallet} />
+          </div>
+          <Footer />
+        </LandingBody>
+      )}
     </div>
   );
 }

@@ -165,11 +165,13 @@ const Web3ModalProvider = ({ children }) => {
   }, [web3Modal, subscribeProvider]);
 
   //track previous connection and automatically connect
-  useEffect(() => {
-    if (web3Modal && web3Modal.cachedProvider) {
-      connect();
-    }
-  }, [web3Modal, connect]);
+
+  // TODO:Check
+  // useEffect(() => {
+  //   if (web3Modal && web3Modal.cachedProvider) {
+  //     connect();
+  //   }
+  // }, [web3Modal, connect]);
 
   //disconnects wallet
   const disconnect = useCallback(async () => {
