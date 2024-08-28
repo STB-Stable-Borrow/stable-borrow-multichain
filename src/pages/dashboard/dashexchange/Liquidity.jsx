@@ -275,7 +275,7 @@ function Liquidity({ assetOne, assetTwo, expandedComponent }) {
             <img src={question} alt="" />
             <h4>Pool Fee:</h4>
           </div>
-          <p>0.00% / 0.000 XDC </p>
+          <p>0.00% / 0.000 token </p>
         </div>
       </div>
       <button

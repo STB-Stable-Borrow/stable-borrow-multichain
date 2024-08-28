@@ -31,7 +31,7 @@ function Generate({
     <div className="bg-[#292c31]  rounded-[12px] flex flex-col gap-[4vh] md:w-[735px] w-[82.37vw] my-[1.875rem] py-[2vh] px-[0.875rem] md:px-[86px] ">
       <div className="flex flex-col gap-[2vh] font-bold ">
         <div className="flex items-center justify-between">
-          <h1 className="text-[] ">XDC to Deposit:</h1>
+          <h1 className="text-[] ">Token to Deposit:</h1>
           <p className="truncate w-[100px] text-end">
             ${totalXdcIn * _xdcPrice}
           </p>
@@ -41,7 +41,7 @@ function Generate({
           <p>${totalStcOut}</p>
         </div>
         <div className="flex items-center justify-between">
-          <h1>XDC To Deposit:</h1>
+          <h1>Token To Deposit:</h1>
           <p>{totalXdcIn}</p>
         </div>
         <div className="flex items-center justify-between">
@@ -49,7 +49,7 @@ function Generate({
           <p>{totalStcOut}</p>
         </div>
         <div className="flex items-center justify-between">
-          <h1>Current XDC Price:</h1>
+          <h1>Current Token Price:</h1>
           <p>${_xdcPrice}</p>
         </div>
         <div className="flex items-center justify-between">
@@ -58,9 +58,9 @@ function Generate({
         </div>
       </div>
       <p className="text-center text-[.75rem] ">
-        <span className="text-[#865DFF] ">Note:</span> Total XDC Amount may vary
-        depending on price action but XDC to deposit must be the same verify on
-        your wallet before you approve transaction. Thanks
+        <span className="text-[#865DFF] ">Note:</span> Total Token Amount may
+        vary depending on price action but Token to deposit must be the same
+        verify on your wallet before you approve transaction. Thanks
       </p>
       <div className="w-full h-[3.90vh]  flex items-center justify-center md:gap-[110px] gap-[1.93vw] mt-[3.19vh] mb-[3.5vh] text-[.75rem] md:h-[5.95vh] ">
         <button

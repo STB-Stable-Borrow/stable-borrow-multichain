@@ -43,10 +43,10 @@ function SwapIndex({
   ]);
 
   const [isSwapped, setIsSwapped] = useState(false);
-  const [token, setToken] = useState("XDC");
-  const [amtInXDC, setAmtInXDC] = useState(0);
+  const [token, setToken] = useState("token");
+  const [amtInToken, setAmtInToken] = useState(0);
   const [amtInSTC, setAmtInSTC] = useState(0);
-  const [amtOutXDC, setAmtOutXDC] = useState(null);
+  const [amtOutToken, setAmtOutToken] = useState(null);
   const [amtOutSTC, setAmtOutSTC] = useState(null);
   const [minRcv, setMinRcv] = useState(0);
   const [_disable, setDisable] = useState(true);
@@ -64,7 +64,7 @@ function SwapIndex({
         );
       }
     })();
-  },[]);
+  }, []);
 
   const handleSwap = () => {
     if (
@@ -74,8 +74,8 @@ function SwapIndex({
       document.getElementById("swap-btn")
     ) {
       setAmtOutSTC(null);
-      setAmtOutXDC(null);
-      if (token == "XDC") {
+      setAmtOutToken(null);
+      if (token == "token") {
         setToken("STC");
         if (document.getElementById("swap-input2")) {
           document.getElementById("swap-input2").disabled = false;
@@ -89,7 +89,7 @@ function SwapIndex({
           document.getElementById("swap-input1").value = null;
         }
       } else {
-        setToken("XDC");
+        setToken("token");
         if (document.getElementById("swap-input2")) {
           document.getElementById("swap-input2").disabled = true;
           document.getElementById("swap-input2").value = null;
@@ -135,9 +135,9 @@ function SwapIndex({
         const perOut = amtOutSTC * (value / 100);
         setMinRcv(amtOutSTC - perOut);
       }
-      if (amtOutXDC) {
-        const perOut = amtOutXDC * (value / 100);
-        setMinRcv(amtOutXDC - perOut);
+      if (amtOutToken) {
+        const perOut = amtOutToken * (value / 100);
+        setMinRcv(amtOutToken - perOut);
       }
     }
   };
@@ -167,16 +167,16 @@ function SwapIndex({
       const perOut = amtOutSTC * (newSlipList[id - 1].value / 100);
       setMinRcv(amtOutSTC - perOut);
     }
-    if (amtOutXDC) {
-      const perOut = amtOutXDC * (newSlipList[id - 1].value / 100);
-      setMinRcv(amtOutXDC - perOut);
+    if (amtOutToken) {
+      const perOut = amtOutToken * (newSlipList[id - 1].value / 100);
+      setMinRcv(amtOutToken - perOut);
     }
     if (document.getElementById("slip-input")) {
       document.getElementById("slip-input").value = null;
     }
   };
 
-  const calculateAmtOutXDC = async (stbSwap, poolId, xdcAddr, amount) => {
+  const calculateAmtOutToken = async (stbSwap, poolId, xdcAddr, amount) => {
     const res = await getAmountOut(stbSwap, poolId, xdcAddr, amount).then(
       (res) => {
         return res;
@@ -199,14 +199,14 @@ function SwapIndex({
     return amount - perOut;
   };
 
-  const handleSwapInputXDC = async (e) => {
+  const handleSwapInputToken = async (e) => {
     const value = parseFloat(e.target.value);
     if (value > 0.0 && value <= _xdcBlnc) {
       const amt = _web3.utils.toWei(String(value), "ether");
-      setAmtInXDC(value);
-      calculateAmtOutXDC(_stbSwap, poolId, _stb.options.address, amt).then(
+      setAmtInToken(value);
+      calculateAmtOutToken(_stbSwap, poolId, _stb.options.address, amt).then(
         async (res) => {
-          setAmtOutXDC(res);
+          setAmtOutToken(res);
           if (document.getElementById("swap-btn")) {
             if (res > 0) {
               document.getElementById("swap-btn").style.backgroundColor =
@@ -221,7 +221,7 @@ function SwapIndex({
         }
       );
     } else {
-      setAmtOutXDC(0);
+      setAmtOutToken(0);
       setMinRcv(0);
       if (document.getElementById("swap-btn")) {
         document.getElementById("swap-btn").style.backgroundColor = "#585858";
@@ -264,9 +264,9 @@ function SwapIndex({
       document.getElementById("swap-btn").style.backgroundColor ===
       "rgb(0, 159, 189)"
     ) {
-      if (token === "XDC") {
-        if (amtInXDC > 0.0) {
-          const amt = _web3.utils.toWei(String(amtInXDC), "ether");
+      if (token === "token") {
+        if (amtInToken > 0.0) {
+          const amt = _web3.utils.toWei(String(amtInToken), "ether");
           const minTol = _web3.utils.toWei(String(minRcv), "ether");
           console.log("amt: ", amt, "min: ", minTol);
           _handleLoading();
@@ -354,13 +354,13 @@ function SwapIndex({
       >
         Select Token Pair, input the desired amount, and select Token Tolerance
       </p>
-      {token === "XDC" ? (
+      {token === "token" ? (
         <p
           className={`text-[#B0B0B0] ${
             expandedComponent === "swap" ? "text-[0.85rem]" : "text-[0.63rem] "
           } text-center mt-[1.5vh`}
         >
-          Balance: {_xdcBlnc} XDC
+          Balance: {_xdcBlnc} token
         </p>
       ) : (
         <p
@@ -392,7 +392,7 @@ function SwapIndex({
               id=""
               className="bg-inherit font-semibold text-[.85rem]"
             >
-              <option value="">XDC</option>
+              <option value="">token</option>
               <option value="">STC</option>
             </select>
             <div className="h-[3.43vh] w-[2px] bg-[#292C31] mx-[.73vw]"></div>
@@ -409,7 +409,7 @@ function SwapIndex({
                   } pl-[.73vw] placeholder:text-[#292c31] placeholder:font-semibold  font-semibold text-xs outline-none`}
                   placeholder="0"
                   onInput={(e) => {
-                    handleSwapInputXDC(e);
+                    handleSwapInputToken(e);
                   }}
                 />
               )}
@@ -429,7 +429,7 @@ function SwapIndex({
               )}
               <button
                 onClick={() => {
-                  if (token === "XDC") {
+                  if (token === "token") {
                     document.getElementById("swap-input1").value = _xdcBlnc;
                   }
                 }}
@@ -459,11 +459,11 @@ function SwapIndex({
             className="bg-inherit font-semibold text-[.85rem]"
           >
             <option value="">STC</option>
-            <option value="">XDC</option>
+            <option value="">token</option>
           </select>
           <div className="h-[3.43vh] w-[2px] bg-[#292C31] mx-[.73vw]"></div>
           <div className="relative">
-            {!amtOutXDC && (
+            {!amtOutToken && (
               <input
                 disabled={_disable}
                 type="number"
@@ -480,11 +480,11 @@ function SwapIndex({
                 }}
               />
             )}
-            {amtOutXDC && (
+            {amtOutToken && (
               <input
                 id="swap-input2a"
                 disabled
-                value={amtOutXDC}
+                value={amtOutToken}
                 type="number"
                 name=""
                 className={`bg-inherit ${
@@ -524,7 +524,7 @@ function SwapIndex({
             expandedComponent === "swap" ? "text-[0.75rem]" : "text-[0.625rem] "
           }`}
         >
-          1 STC $(1.0000) ~ {rate} XDC
+          1 STC $(1.0000) ~ {rate} Token
         </h6>
       </div>
       <div

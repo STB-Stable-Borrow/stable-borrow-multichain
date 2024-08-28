@@ -124,7 +124,7 @@ function HomeIndex({
               <div className="flex flex-col gap-1 items-center">
                 <h1 className="text-[0.5rem] font-bold ">Total Payout:</h1>
                 <p className="md:text-[1.25rem] text-center text-sm mt-[-0.74vh] font-medium">
-                  350000.0000 XDC
+                  350000.0000 token
                 </p>
               </div>
             </div>

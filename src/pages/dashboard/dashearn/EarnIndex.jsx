@@ -51,7 +51,7 @@ function EarnIndex({
           <div className="flex flex-col items-center">
             <h1 className="font-bold md:text-base text-xs">Total Payout:</h1>
             <p className="md:mt-[-5px] text-xl md:text-[1.5em] font-medium ">
-              3500.00 XDC
+              3500.00 token
             </p>
           </div>
         </div>

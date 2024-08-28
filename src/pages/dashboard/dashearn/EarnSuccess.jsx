@@ -21,7 +21,7 @@ function EarnSuccess() {
         </h1>
         <p className="text-center text-[#009fbd]  font-semibold text-sm ">
           Vault-01 has been Haunted successfully! <br />
-          Your Payout is 100 XDC
+          Your Payout is 100 token
         </p>
       </div>
     </div>

@@ -29,7 +29,7 @@ function DepositXDCIndex({ _xdcBalance, _xdcPrc, _stb, _account, _web3 }) {
   return (
     <div className="md:w-[760px] w-full bg-[#202225] rounded-[30px] mx-auto pt-[3.0vh] pb-[4.2969vh] flex items-center flex-col">
       <h1 className="text-[#009FBD] font-bold text-sm md:text-[1.125rem] mb-[6.738vh] ">
-        How much XDC would you like to Deposit?
+        How much token would you like to Deposit?
       </h1>
 
       <div className="text-[#292C31] relative ">
@@ -53,14 +53,14 @@ function DepositXDCIndex({ _xdcBalance, _xdcPrc, _stb, _account, _web3 }) {
           }}
           value={xdcIn}
         />{" "}
-        <p className="absolute md:top-0 top-2 right-2">XDC</p>
+        <p className="absolute md:top-0 top-2 right-2">Token</p>
       </div>
       <p className="text-white text-sm md:text-base mb-[7.91vh] ">
-        Balance: {_xdcBalance} XDC
+        Balance: {_xdcBalance} token
       </p>
       <div className="text-white w-full md:px-0 px-[12.80vw] md:w-[450px] md:text-[1rem] mb-[6.738vh] text-xs ">
         <div className="flex w-full justify-between">
-          <h3>Total XDC to Deposit:</h3>
+          <h3>Total token to Deposit:</h3>
           <p className="md:w-[100px]">
             ${(_xdcPrc * parseFloat(xdcIn)).toFixed(4)}
           </p>

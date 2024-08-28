@@ -76,12 +76,12 @@ function Settings({ _stcBlnc, _xdcBalance, _xdcPrc, _profile }) {
               <div>
                 {_xdcBalance && (
                   <h1 className="text-[#009FBD] font-semibold md:text-[1.25em] ">
-                    {_xdcBalance} XDC
+                    {_xdcBalance} token
                   </h1>
                 )}
                 {!_xdcBalance && (
                   <h1 className="text-[#009FBD] font-semibold md:text-[1.25em] ">
-                    0.0000 XDC
+                    0.0000 token
                   </h1>
                 )}
                 {_xdcBalance && (

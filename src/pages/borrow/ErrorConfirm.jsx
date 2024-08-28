@@ -12,9 +12,9 @@ function ErrorConfirm({ _redirect }) {
         Oops! Error while generating vault and requested STC!
       </p>
       <p className="text-center">
-        <span className="text-[#E32424] ">Note:</span> Inputed XDC as deposit in
-        previous steps was not removed from your wallet, make sure you have
-        enough XDC to cover both gas fee and deposit and try again.
+        <span className="text-[#E32424] ">Note:</span> Inputed token as deposit
+        in previous steps was not removed from your wallet, make sure you have
+        enough token to cover both gas fee and deposit and try again.
       </p>
     </div>
   );

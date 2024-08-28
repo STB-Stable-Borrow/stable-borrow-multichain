@@ -68,7 +68,7 @@ function Vault({
           <div className="flex justify-between mb-[2.215vh] ">
             <div className="flex flex-col items-center justify-between ">
               <h1 className="md:text-[1rem] text-xs  font-bold ">
-                Total Locked XDC
+                Total Locked token
               </h1>
               {vaultInfo && (
                 <p className="md:text-[1.5rem] text-xl mt-[-0.74vh] font-medium ">

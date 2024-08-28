@@ -38,8 +38,8 @@ function VaultMgt({
   const maxU256 =
     115792089237316195423570985008687907853269984665640564039457584007913129639935n;
 
-  //sets xdc amount, gets and sets returned STC
-  const handleInputXDC = (e) => {
+  //sets token amount, gets and sets returned STC
+  const handleInputToken = (e) => {
     let input = e.target.value;
     setXdcIn(parseFloat(input));
     const haunterFee = (10 / 100) * input;
@@ -141,7 +141,7 @@ function VaultMgt({
           </p>
           <div className=" mb-[2.1vh] ">
             <div className="flex items-center justify-between mb-1">
-              <p>Deposit XDC</p>
+              <p>Deposit Token</p>
               <p className="text-[#865dff] ">
                 Balance: <span className="text-white">{_xdcBalance}</span>
               </p>
@@ -149,7 +149,7 @@ function VaultMgt({
             <div className="w-full relative text-[#292C31]">
               <input
                 onInput={(e) => {
-                  handleInputXDC(e);
+                  handleInputToken(e);
                 }}
                 onChange={calculateAmounts(xdcIn, stcOut, hntFee)}
                 type="number"
@@ -157,7 +157,7 @@ function VaultMgt({
                 className="w-full bg-[#D5D5D5] rounded-[7px] h-[5.46vh] px-[21px] placeholder:text-[#292C31]  "
               />
               <h1 className="absolute md:top-1 top-4 right-[21px] font-semibold">
-                XDC
+                Token
               </h1>
             </div>
           </div>
@@ -176,7 +176,7 @@ function VaultMgt({
                 value={stcOut}
               />
               <h1 className="absolute md:top-1 top-4 right-[21px] font-semibold">
-                XDC
+                Token
               </h1>
             </div>
           </div>

@@ -17,7 +17,7 @@ function WithdrawXDC({
   return (
     <div className="px-[4.83vw] md:px-0 ">
       <h1 className="w-full bg-[#202225] text-center text-[#B0B0B0] font-bold text-[1.125rem] border-[#585858] border-dashed border rounded-[7px] h-[4.5989vh] mb-[1.53vh] flex justify-center items-center gap-[31px] ">
-        Withdraw XDC
+        Withdraw Token
       </h1>
       {_withdrawRes === null && (
         <WithdrawXDCIndex

@@ -53,7 +53,7 @@ function EditProfile({ onBackClick, prof, xdcBalance, stcBlnc, xdcPrc }) {
                   <div className="flex items-center flex-col">
                     {xdcBalance && (
                       <h1 className="text-[#009FBD] font-semibold text-[1.25em] ">
-                        {xdcBalance} XDC
+                        {xdcBalance} token
                       </h1>
                     )}
                     {xdcBalance && (
@@ -96,7 +96,7 @@ function EditProfile({ onBackClick, prof, xdcBalance, stcBlnc, xdcPrc }) {
                   <div className="flex items-center flex-col">
                     {xdcBalance && (
                       <h1 className="text-[#009FBD] font-semibold text-[1.25em] ">
-                        0 XDC
+                        0 token
                       </h1>
                     )}
                     {xdcBalance && (

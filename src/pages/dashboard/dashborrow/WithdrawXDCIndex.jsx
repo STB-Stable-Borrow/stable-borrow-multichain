@@ -67,12 +67,12 @@ function WithdrawXDCIndex({ _web3, _xdcPrc, _xdcBalance, _stb, _account }) {
           }}
           value={xdcIn}
         />{" "}
-        <p className="absolute md:top-0 top-2 right-2">XDC</p>
+        <p className="absolute md:top-0 top-2 right-2">Token</p>
       </div>
       {vaultInfo && (
         <p className="text-white text-sm md:text-base mb-[7.91vh] ">
           Withdrawable Balance:{" "}
-          {new Big(vaultInfo.availCollateral).div("10e17").toFixed(4)} XDC
+          {new Big(vaultInfo.availCollateral).div("10e17").toFixed(4)} Token
         </p>
       )}
       {!vaultInfo && (
@@ -80,7 +80,7 @@ function WithdrawXDCIndex({ _web3, _xdcPrc, _xdcBalance, _stb, _account }) {
       )}
       <div className="text-white md:w-[450px] w-full text-xs md:text-[1rem] mb-[6.738vh] px-[12.80vw] md:px-0 ">
         <div className="flex w-full justify-between">
-          <h3>Total XDC to Withdraw:</h3>
+          <h3>Total token to Withdraw:</h3>
           <p className="md:w-[100px]">
             ${(_xdcPrc * parseFloat(xdcIn)).toFixed(4)}
           </p>
@@ -91,7 +91,7 @@ function WithdrawXDCIndex({ _web3, _xdcPrc, _xdcBalance, _stb, _account }) {
         </div>
         {vaultInfo && (
           <div className="flex w-full justify-between">
-            <h3>New withdrawable XDC balance:</h3>
+            <h3>New withdrawable token balance:</h3>
             <p className="md:w-[100px]">
               {(
                 new Big(vaultInfo.availCollateral).div("10e17").toFixed(4) -
@@ -102,7 +102,7 @@ function WithdrawXDCIndex({ _web3, _xdcPrc, _xdcBalance, _stb, _account }) {
         )}
         {!vaultInfo && (
           <div className="flex w-full justify-between">
-            <h3>New withdrawable XDC balance:</h3>
+            <h3>New withdrawable token balance:</h3>
             <p className="md:w-[100px]"></p>
           </div>
         )}

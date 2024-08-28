@@ -190,7 +190,7 @@ function Buy({ expandedComponent }) {
             <input
               type="number"
               className="h-[3vh] w-[60vw] md:w-[12vw] bg-inherit pl-[.78vw] placeholder:text-[#585858] text-sm outline-none "
-              placeholder="Enter XDC amount"
+              placeholder="Enter token amount"
             />
             <div className="h-[2.96vh] w-[.10vw] bg-[#202225] mx-4 md:mx-0 "></div>
             <button className="md:text-[#B0B0B0] text-[#202225] md:bg-[#202225] float-right md:w-[2.65vw] h-[2.31vh] text-xs rounded-[6px] ">

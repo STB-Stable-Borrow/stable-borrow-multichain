@@ -118,7 +118,7 @@ function Borrow({
                 >
                   <h1 className="w-[5.13vw]">#{item.id}</h1>
                   <h1 className="w-[7.21vw] text-center ">{item.id}</h1>
-                  <h1 className="w-[2.60vw]   ">XDC</h1>
+                  <h1 className="w-[2.60vw]">Token</h1>
                   <h1 className="w-[10.81vw]  ">
                     $
                     {(
